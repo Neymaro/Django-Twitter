@@ -3,6 +3,7 @@
 <p id="description">Django Twitter</p>
 
 <h2>🚀 Demo</h2>
+Soon ...
 
 [http://www.hamzaunsal.com](http://www.hamzaunsal.com)
 
