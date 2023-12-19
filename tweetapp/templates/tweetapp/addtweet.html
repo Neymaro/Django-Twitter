@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block content%} 
+    <header class="bg-white shadow">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Add Tweet</h1>
+    </div>
+  </header>
+ <!--Add Tweet Part-->
+ <form action="" method="POST" class="mt-4">
+    {% csrf_token %} 
+   <div class="max-w-2xl mx-auto">
+
+     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your Tweet</label>
+     <textarea id="tweet" rows="4" name="tweet" maxlength="140" style="resize:none;"
+    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+    placeholder="Your tweet , max 140 character." ></textarea>
+     <button
+    class="middle none center mr-4 mt-5 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+    data-ripple-light="true">Tweet</button>
+    </div>
+  </form>
+
+  {%endblock%}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%} 
+
+{%if form.errors%} 
+<p> Your password & username does not match! </p>
+{%endif%}
+
+{%if user.is_authenticated%} 
+
+<div class="flex min-h-screen items-center justify-center bg-gray-100" >
+   <div class="rounded-lg bg-gray-50 px-16 py-14">
+     <div class="flex justify-center">
+       <div class="rounded-full bg-green-200 p-6">
+         <div class="flex h-16 w-16 items-center justify-center rounded-full bg-green-500 p-4">
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-8 w-8 text-white">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+           </svg>
+         </div>
+       </div>
+     </div>
+     <h3 class="my-4 text-center text-3xl font-semibold text-gray-700">Successfully <br>logged in!</h3>
+     <p class="w-[230px] text-center font-normal text-gray-600">{{user.username}}</p>
+   </div>
+ </div>
+{%else%} 
+<div class="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <form method="POST" action="{% url 'login' %}">
+    {%csrf_token%}
+    <div class="flex justify-center	 mt-5">
+      <h1 class="grow-0 h-14 content-center mb-10 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        Login</h1>
+        <div class="relative h-32 w-32 ...">
+          
+            
+          <div class="mt-15 absolute inset-0 ...">{{ form }}<div>
+            <button type="submit" 
+            class="text-white bg-blue-700 
+            hover:bg-blue-800 focus:ring-4 
+            focus:ring-blue-300 font-medium 
+            rounded-lg text-sm px-5 py-2.5 
+            me-2 mb-2 dark:bg-blue-600 
+            dark:hover:bg-blue-700 focus:outline-none 
+            dark:focus:ring-blue-800">Login</button>
+          </div>
+      </div>
+  </form>
+</div>
+{%endif%}
+{%endblock%}

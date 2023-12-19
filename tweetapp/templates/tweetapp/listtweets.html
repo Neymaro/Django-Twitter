@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{%block content%} 
+<header class="bg-white shadow">
+  <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-bold tracking-tight text-gray-900">All Tweets</h1>
+  </div>
+</header>
+<main>
+  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <!-- component -->
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.4/dist/flowbite.min.css" />
+    <!--Twitler-->
+    {% for item in tweets %}
+    <blockquote class="relative w-full bg-white p-5 border border-gray-200 break-inside-avoid-column m-5">
+        <h2 class="text-lg">{{item.tweet}}</h2>
+        <div class="mt-5 flex items-start gap-4">
+            <img src="https://www.svgrepo.com/show/491978/gas-costs.svg" class="w-10 h-10 object-cover object-center" alt="Aaron Francis">
+            <div class="text-m">
+                <cite class="not-italic font-bold">@{{item.username}}</cite><br>
+                <cite class="italic">{{item.time}}</cite>
+            </div>
+            
+        </div>
+    </blockquote>
+    {% endfor %}
+</main>
+{%endblock%}

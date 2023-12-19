@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+  <div class="flex justify-center mt-5">
+    <div class="relative h-32 w-32 ...">
+     <div class="absolute inset-0 ...">
+        <form method="post">
+         <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+            Sign up for tweeting</h1>
+
+            {% csrf_token %}
+            {%for field in form%}
+            {{ field.label_tag }}<br>
+            {{ field }}<br>
+            {%endfor%}
+            <button type="submit" 
+           class="text-white bg-blue-700 
+           hover:bg-blue-800 focus:ring-4 
+           focus:ring-blue-300 font-medium 
+           rounded-lg text-sm px-5 py-2.5 
+           me-2 mb-2 dark:bg-blue-600 
+           dark:hover:bg-blue-700 focus:outline-none 
+           dark:focus:ring-blue-800">Login</button>
+        </div>
+     </div>
+    </form>
+{% endblock %}
